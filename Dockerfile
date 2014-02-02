@@ -1,6 +1,9 @@
 FROM ubuntu
 MAINTAINER  Desmond Morris "hi@desmodnmorris.com"
 
+# Add precise/universe mirrors
+RUN  echo "deb http://archive.ubuntu.com/ubuntu precise universe" >> /etc/apt/sources.list
+
 # Update apt
 RUN apt-get -qqy update && locale-gen en_US.UTF-8
 
