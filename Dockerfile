@@ -13,8 +13,8 @@ RUN add-apt-repository ppa:chris-lea/node.js
 # Update apt again
 RUN apt-get -qqy update
 
-# Install node and redis
-RUN apt-get -qqy install nodejs redis-server supervisor
+# Install node
+RUN apt-get -qqy install nodejs
 
 # Install hubot & coffee-script globally
 RUN npm install -g hubot coffee-script
@@ -26,6 +26,9 @@ RUN npm install && chmod +x bin/hubot
 
 # Create hubot system user
 RUN adduser --disabled-password --gecos "" hubot
+
+# Install redis-server and supervisor
+RUN apt-get -qqy redis-server supervisor
 
 ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
