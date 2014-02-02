@@ -31,7 +31,7 @@ RUN npm install && chmod +x bin/hubot
 RUN adduser --disabled-password --gecos "" hubot
 
 # Install redis-server and supervisor
-RUN apt-get -qqy redis-server supervisor
+RUN apt-get -qqy install redis-server supervisor
 
 ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
